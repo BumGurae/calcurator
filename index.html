@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Bin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        @media (max-width:540px) {
+        div.empty { display: none; }
+        div.vertical { display: block; }
+        div.horizontal { display: none; }
+        }
+        @media (max-width:360px) {
+        div.empty { display: block; }
+        div.vertical { display: none; }
+        div.horizontal { display: none; }
+        }
+        @media (min-width:541px) {
+        div.empty { display: none; }
+        div.vertical { display: none; }
+        div.horizontal { display: block; }
+        }
+        #display {
+            
+         }
+        
+
+        .backcolor{
+            background-color: #f0f0f0;
+        }
+
+
+        table {
+            padding: 20px 20px;
+            border-radius: 5px;
+            border-spacing: 0;
+           
+        }
+        td {
+            border: none;
+            padding: 0px;
+            padding: 0;
+            margin: 0;
+            height: 0;
+            
+        }
+
+        tr{
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            height: 0;
+            line-height: 0;
+            
+        }
+
+
+        button {
+            border: 1px solid #cccccc;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 27px;
+            cursor: pointer;
+            width: 70px;
+            height: 60px;
+            margin: 5px;
+            padding: 0;
+         }
+        button:hover {
+            background-color: #f0f0f0;
+         }
+
+         .button_function {
+            background-color: #dddddd;
+            color: #566066;
+         }
+
+         .button_ex {
+            background-color: #ffcc00;
+            font-weight: bold;
+         }
+
+         .button_num{
+            background-color: #f6f6f6;
+            font-weight: bold;
+         }
+
+         .display_num{
+            border: 1px solid black;
+            background-color: #ffffff;
+            font-size: 25px;
+            height: 50px;
+            text-align: right;
+         }
+         
+         .logo{
+            text-align: right;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            font-family: 'Pacifico', cursive;
+            color: blue;
+            font-weight: bold;
+            font-size: 25px;
+         }
+
+         .dark_button{
+            background-color: #dddddd;
+            color: #566066;
+         }
+
+
+    </style>
+
+<script src="calc2.js"></script>
+
+
+</head>
+
+<body>
+    <div class="empty"><p>표시할수 없음 .</p></div>
+    <div class="vertical">
+        <table width=360 height=660 border=1 class="backcolor">
+            <tr>
+                <td class="display_num", colspan="4"><span id="display1">0</span></td>
+            </tr>
+            <tr>
+                    <td><button class="button_function", onclick="Sin()">Sin</button></td>
+                    <td><button class="button_function", onclick="Cos()">Cos</button></td>
+                    <td><button class="button_function", onclick="factorial()">!</button></td>
+                    <td><button class="dark_button", onclick="dark_mode()">🌙</button></td>
+            </tr>
+            <tr>
+                <td><button class="button_function", onclick="CEButton()">CE</button></td>
+                <td><button class="button_function", onclick="sqrtButton()">√X</button></td>
+                <td><button class="button_function", onclick="modulusButton()">%</button></td>
+                <td><button class="button_ex", onclick="divideButton()">÷</button></td>
+            </tr>
+            <tr>
+                <td><button class="button_num", onclick='numberButton(7)'>7</button></td>
+                <td><button class="button_num", onclick='numberButton(8)'>8</button></td>
+                <td><button class="button_num", onclick='numberButton(9)'>9</button></td>
+                <td><button class="button_ex", onclick="mutiplieButton()">×</button></td>
+            </tr>
+            <tr>
+                <td><button class="button_num", onclick='numberButton(4)'>4</button></td>
+                <td><button class="button_num", onclick='numberButton(5)'>5</button></td>
+                <td><button class="button_num", onclick='numberButton(6)'>6</button></td>
+                <td><button class="button_ex" , onclick="minusButton()">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="button_num", onclick='numberButton(1)'>1</button></td>
+                <td><button class="button_num", onclick='numberButton(2)'>2</button></td>
+                <td><button class="button_num", onclick='numberButton(3)'>3</button></td>
+                <td><button class="button_ex", onclick="plusButton()">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="button_num", onclick='numberButton(0)'>0</button></td>
+                <td><button class="button_num", onclick="commaButton()">.</button></td>
+                <td><button class="button_num", onclick="swapButton()">+/-</button></td>
+                <td><button class="button_function", onclick="equalButton()">=</button></td>
+            </tr>
+            <tr>
+                <td><button class="button_function", onclick="equalButton()">π</button></td>
+                <td><button class="button_function", onclick="powButton()">X²</button></td>
+                <td><button class="button_function", onclick="R2Button()">R2</button></td>
+                <td><button class="button_function", onclick="R0Button()">R0</button></td>
+            </tr>
+            <tr>
+                <td colspan="7">
+                <p class="logo">20223123</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <div class="horizontal">
+        <table width=540 height=480 border=1 class="backcolor">
+            <tr>
+                <td class="display_num", colspan="7"><span id="display2">0</span></td>
+            </tr>
+          
+            <tr>
+                    <td><button class="button_function", onclick="Sin()">Sin</button></td>
+                    <td><button class="button_function", onclick="Cos()">Cos</button></td>
+                    <td><button class="button_num", onclick='numberButton(7)'>7</button></td>
+                    <td><button class="button_num", onclick='numberButton(8)'>8</button></td>
+                    <td><button class="button_num", onclick='numberButton(9)'>9</button></td>
+                    <td><button class="button_ex", onclick="divideButton()">÷</button></td>
+                    <td><button class="button_function", onclick="R2Button()">R2</button></td>
+            </tr>
+            <tr>
+                <td><button class="button_function" onclick="factorial()">!</button></td>
+                <td><button class="dark_button" onclick="dark_mode()">🌙</button></td>
+                <td><button class="button_num", onclick='numberButton(4)'>4</button></td>
+                <td><button class="button_num", onclick='numberButton(5)'>5</button></td>
+                <td><button class="button_num", onclick='numberButton(6)'>6</button></td>
+                <td><button class="button_ex", onclick="mutiplieButton()">×</button></td>
+                <td><button class="button_function", onclick="R0Button()">R0</button></td>
+            </tr>
+            <tr>
+                <td><button class="button_function", onclick="pieButton()">π</button></td>
+                <td><button class="button_function", onclick="powButton()">X²</button></td>
+                <td><button class="button_num", onclick='numberButton(1)'>1</button></td>
+                <td><button class="button_num", onclick='numberButton(2)'>2</button></td>
+                <td><button class="button_num", onclick='numberButton(3)'>3</button></td>
+                <td><button class="button_ex", onclick="minusButton()">-</button></td>
+                <td><button class="button_function", onclick="CEButton()">CE</button></td>
+            </tr>
+            <tr>
+                <td><button class="button_function", onclick="sqrtButton()">√X</button></td>
+                <td><button class="button_function", onclick="modulusButton()">%</button></td>
+                <td><button class="button_num", onclick='numberButton(0)'>0</button></td>
+                <td><button class="button_num", onclick="commaButton()">.</button></td>
+                <td><button class="button_num", onclick="swapButton()">+/-</button></td>
+                <td><button class="button_ex", onclick="plusButton()">+</button></td>
+                <td><button class="button_function", onclick="equalButton()">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="7">
+                <p class="logo">20223123</p>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>
